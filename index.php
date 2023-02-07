@@ -60,8 +60,15 @@
     <ul>
        <?php for ($i = 0; $i < count($hotels); $i++) : ?>
           <li>
-             <p><?= $hotels[$i]['name'] ?></p>
-          </li>
+            <ul class="my-3">
+                <?php foreach ($hotels[$i] as $key => $value) : ?>
+                <li>
+                    <strong><?= $key ?></strong> : <span><?= $value ?></span>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+             
+          </li> 
         <?php endfor; ?>
     </ul>
 
