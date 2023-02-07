@@ -55,23 +55,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
+
+
 <body>
     <div class="container mt-5">
-    <ul>
-       <?php for ($i = 0; $i < count($hotels); $i++) : ?>
-          <li>
-            <ul class="my-3">
-                <?php foreach ($hotels[$i] as $key => $value) : ?>
-                <li>
-                    <strong><?= $key ?></strong> : <span><?= $value ?></span>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-             
-          </li> 
-        <?php endfor; ?>
-    </ul>
 
+         <table class="table">
+           <thead>
+               <tr>
+                 <th scope="col">#</th>
+                 <?php foreach ($hotels[0] as $key => $value ) : ?>
+                    <th scope="col"><?= $key ?></th>
+                 <?php endforeach; ?>
+               </tr>
+           </thead>
+         <?php for ($i = 0; $i < count($hotels); $i++) : ?>
+        
+           <tbody>
+             <tr>
+               <th scope="row">1</th>
+               <?php foreach ($hotels[$i] as $key => $value) : ?>
+                   <td><?= $value ?></td>
+               <?php endforeach; ?>  
+             </tr>
+           </tbody>
+           <?php endfor; ?>
+
+         </table>
     </div>
     
 </body>
