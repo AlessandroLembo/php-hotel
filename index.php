@@ -73,7 +73,7 @@
         
            <tbody>
              <tr>
-               <th scope="row">1</th>
+               <th scope="row"><?= $i + 1 ?></th>
                <?php foreach ($hotels[$i] as $key => $value) : ?>
                    <td><?= $value ?></td>
                <?php endforeach; ?>  
