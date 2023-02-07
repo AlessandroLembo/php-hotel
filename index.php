@@ -62,24 +62,32 @@
 
          <table class="table">
            <thead>
+               <th scope="row" class="mb-5 fs-2">HOTELS</th>
                <tr>
                  <th scope="col">#</th>
+
+                 <!-- loop for each to print keys -->
                  <?php foreach ($hotels[0] as $key => $value ) : ?>
                     <th scope="col"><?= $key ?></th>
                  <?php endforeach; ?>
                </tr>
            </thead>
-         <?php for ($i = 0; $i < count($hotels); $i++) : ?>
         
-           <tbody>
+         <!-- loop for to print 5 rows -->
+         <tbody>
+           <?php for ($i = 0; $i < count($hotels); $i++) : ?>
+           
              <tr>
                <th scope="row"><?= $i + 1 ?></th>
+
+               <!-- loop for to print value -->
                <?php foreach ($hotels[$i] as $key => $value) : ?>
                    <td><?= $value ?></td>
                <?php endforeach; ?>  
              </tr>
-           </tbody>
+           
            <?php endfor; ?>
+        </tbody>
 
          </table>
     </div>
