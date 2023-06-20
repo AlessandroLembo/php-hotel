@@ -141,7 +141,7 @@ foreach ($hotels as $hotel) {
                 <thead>
                     <th scope="row" class="mb-5 fs-2 custom-text">HOTELS</th>
                     <tr>
-                        <th scope="col" class="custom-text">#</th>
+                        <th scope="col" class="custom-text"></th>
 
                         <!-- loop for each to print keys -->
                         <?php foreach ($hotels[0] as $key => $value) : ?>
