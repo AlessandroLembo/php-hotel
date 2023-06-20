@@ -4,35 +4,35 @@ $hotels = [
 
     [
         'name' => 'Hotel Belvedere',
-        'description' => 'Hotel Belvedere Descrizione',
+        'description' => 'Hotel Belvedere vista sul mare',
         'parking' => true,
         'vote' => 4,
         'distance' => 10.4
     ],
     [
         'name' => 'Hotel Futuro',
-        'description' => 'Hotel Futuro Descrizione',
+        'description' => 'Hotel Futuro all\'avanguardia',
         'parking' => true,
         'vote' => 2,
         'distance' => 2
     ],
     [
         'name' => 'Hotel Rivamare',
-        'description' => 'Hotel Rivamare Descrizione',
+        'description' => 'Hotel Rivamare a due passi',
         'parking' => false,
         'vote' => 1,
         'distance' => 1
     ],
     [
         'name' => 'Hotel Bellavista',
-        'description' => 'Hotel Bellavista Descrizione',
+        'description' => 'Hotel Bellavista anche di notte',
         'parking' => false,
         'vote' => 5,
         'distance' => 5.5
     ],
     [
         'name' => 'Hotel Milano',
-        'description' => 'Hotel Milano Descrizione',
+        'description' => 'Hotel Milano centro storico',
         'parking' => true,
         'vote' => 2,
         'distance' => 50
@@ -40,11 +40,55 @@ $hotels = [
 
 ];
 
-// dichiaro un array vuoto
+// array sul quale girare per mostrare il voto dell'hotel sottoforma di stelline
+$stars = [
+    [
+        'star' => 1,
+    ],
+    [
+        'star' => 2,
+    ],
+    [
+        'star' => 3,
+    ],
+    [
+        'star' => 4,
+    ],
+    [
+        'star' => 5,
+    ],
+
+];
+
+// array vuoto che riempio con le votazioni d ogni hotel
+$arrayStars = [];
+
+// dichiaro un array vuoto per poi riempirlo aggiornato al valore della proprietà 'parking'
 $updateHotels = [];
 
 // giro sull'array di hotel
 foreach ($hotels as $hotel) {
+
+    // giro sull'array stars e controllo quante stelle 'piene' e quante 'vuote' pushare nell'array dichiarato vuoto in precedenza
+    foreach ($stars as $star) {
+
+        if ($hotel['vote'] >= $star['star']) {
+            array_push($arrayStars, '<i class="fa-solid fa-star" style="color: #c1ad49;"></i>');
+        } else {
+            array_push($arrayStars, '<i class="fa-regular fa-star" style="color: #c1ad49;"></i>');
+        }
+    }
+
+    // converto l'array in stringa
+    $starString = implode($arrayStars);
+
+    // salvo in una variabile il valore nuovo assegnato alla proprietà 'vote'
+    $starsVote = array('vote' => $starString);
+
+    // sostituisco a tutti gli hotels il booleano del voto con la stringa di stelle
+    $hotel = array_replace($hotel, $starsVote);
+
+
 
     // aggiungo una stringa al voto
     $hotel['distance'] = $hotel['distance'] . ' ' . 'Km';
@@ -62,6 +106,9 @@ foreach ($hotels as $hotel) {
 
     // inserisco nell'array gli hotel con la proprità 'parking' aggiornata
     array_push($updateHotels, $hotel);
+
+    // svuoto l'array per riempirlo di stelle del prossimo hotel su cui giro
+    $arrayStars = [];
 }
 
 ?>
