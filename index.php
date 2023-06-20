@@ -7,35 +7,35 @@ $hotels = [
         'description' => 'Hotel Belvedere Descrizione',
         'parking' => true,
         'vote' => 4,
-        'distance_to_center' => 10.4
+        'distance' => 10.4
     ],
     [
         'name' => 'Hotel Futuro',
         'description' => 'Hotel Futuro Descrizione',
         'parking' => true,
         'vote' => 2,
-        'distance_to_center' => 2
+        'distance' => 2
     ],
     [
         'name' => 'Hotel Rivamare',
         'description' => 'Hotel Rivamare Descrizione',
         'parking' => false,
         'vote' => 1,
-        'distance_to_center' => 1
+        'distance' => 1
     ],
     [
         'name' => 'Hotel Bellavista',
         'description' => 'Hotel Bellavista Descrizione',
         'parking' => false,
         'vote' => 5,
-        'distance_to_center' => 5.5
+        'distance' => 5.5
     ],
     [
         'name' => 'Hotel Milano',
         'description' => 'Hotel Milano Descrizione',
         'parking' => true,
         'vote' => 2,
-        'distance_to_center' => 50
+        'distance' => 50
     ],
 
 ];
@@ -84,40 +84,42 @@ foreach ($hotels as $hotel) {
 
 
 <body>
-    <div class="container mt-5">
+    <div id="background">
+        <div class="container pt-5">
 
-        <table class="table">
-            <thead>
-                <th scope="row" class="mb-5 fs-2">HOTELS</th>
-                <tr>
-                    <th scope="col">#</th>
-
-                    <!-- loop for each to print keys -->
-                    <?php foreach ($hotels[0] as $key => $value) : ?>
-                        <th scope="col"><?= $key ?></th>
-                    <?php endforeach; ?>
-                </tr>
-            </thead>
-
-            <!-- loop for to print 5 rows -->
-            <tbody>
-                <?php for ($i = 0; $i < count($hotels); $i++) : ?>
-
+            <table class="table">
+                <thead>
+                    <th scope="row" class="mb-5 fs-2 custom-text">HOTELS</th>
                     <tr>
-                        <th scope="row"><?= $i + 1 ?></th>
+                        <th scope="col" class="custom-text">#</th>
 
-                        <!-- loop for to print value -->
-                        <?php foreach ($updateHotels[$i] as $key => $value) : ?>
-                            <td><?= $value ?></td>
+                        <!-- loop for each to print keys -->
+                        <?php foreach ($hotels[0] as $key => $value) : ?>
+                            <th scope="col" class="custom-text"><?= $key ?></th>
                         <?php endforeach; ?>
                     </tr>
+                </thead>
 
-                <?php endfor; ?>
-            </tbody>
+                <!-- loop for to print 5 rows -->
+                <tbody>
+                    <?php for ($i = 0; $i < count($hotels); $i++) : ?>
 
-        </table>
+                        <tr class="row-hotel">
+                            <th scope="row" class="custom-text"><?= $i + 1 ?></th>
+
+                            <!-- loop for to print value -->
+                            <?php foreach ($updateHotels[$i] as $key => $value) : ?>
+                                <td class="custom-text"><?= $value ?></td>
+                            <?php endforeach; ?>
+                        </tr>
+
+                    <?php endfor; ?>
+                </tbody>
+
+            </table>
+        </div>
+
     </div>
-
 </body>
 
 </html>
