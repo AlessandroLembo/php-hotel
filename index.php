@@ -88,7 +88,7 @@ foreach ($hotels as $hotel) {
 
 
     // aggiungo una stringa al voto
-    $hotel['distance'] = $hotel['distance'] . ' ' . 'Km';
+    $hotel['distance'] .= ' Km';
 
     // In base alla disponibilità di parcheggio uso il metodo array_replace per cambiare la proprietà 'parking' del singolo hotel
     $hotel['parking'] == true ? $replacements = array('parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>') : $replacements = array('parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
