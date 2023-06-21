@@ -72,11 +72,8 @@ foreach ($hotels as $hotel) {
     // giro sull'array stars e controllo quante stelle 'piene' e quante 'vuote' pushare nell'array dichiarato vuoto in precedenza
     foreach ($stars as $star) {
 
-        if ($hotel['vote'] >= $star['star']) {
-            array_push($arrayStars, '<i class="fa-solid fa-star" style="color: #c1ad49;"></i>');
-        } else {
-            array_push($arrayStars, '<i class="fa-regular fa-star" style="color: #c1ad49;"></i>');
-        }
+        // ternario per controllare quante e quali stelle inserie nell'array
+        $hotel['vote'] >= $star['star'] ? array_push($arrayStars, '<i class="fa-solid fa-star" style="color: #c1ad49;"></i>') : array_push($arrayStars, '<i class="fa-regular fa-star" style="color: #c1ad49;"></i>');
     }
 
     // converto l'array in stringa
@@ -94,15 +91,8 @@ foreach ($hotels as $hotel) {
     $hotel['distance'] = $hotel['distance'] . ' ' . 'Km';
 
     // In base alla disponibilità di parcheggio uso il metodo array_replace per cambiare la proprietà 'parking' del singolo hotel
-    if ($hotel['parking'] == true) {
-
-        $replacements = array('parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>');
-        $hotel = array_replace($hotel, $replacements);
-    } else {
-
-        $replacements = array('parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
-        $hotel = array_replace($hotel, $replacements);
-    }
+    $hotel['parking'] == true ? $replacements = array('parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>') : $replacements = array('parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
+    $hotel = array_replace($hotel, $replacements);
 
     // inserisco nell'array gli hotel con la proprità 'parking' aggiornata
     array_push($updateHotels, $hotel);
