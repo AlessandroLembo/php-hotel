@@ -27,37 +27,38 @@ require_once __DIR__ . '/data/logic.php';
 <body>
     <div id="background">
         <div class="container pt-5">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <th scope="row" class="mb-5 fs-2 custom-text">HOTELS</th>
+                        <tr>
+                            <th scope="col" class="custom-text"></th>
 
-            <table class="table">
-                <thead>
-                    <th scope="row" class="mb-5 fs-2 custom-text">HOTELS</th>
-                    <tr>
-                        <th scope="col" class="custom-text"></th>
-
-                        <!-- loop for each to print keys -->
-                        <?php foreach ($hotels[0] as $key => $value) : ?>
-                            <th scope="col" class="custom-text"><?= $key ?></th>
-                        <?php endforeach; ?>
-                    </tr>
-                </thead>
-
-                <!-- loop for to print 5 rows -->
-                <tbody>
-                    <?php for ($i = 0; $i < count($hotels); $i++) : ?>
-
-                        <tr class="row-hotel">
-                            <th scope="row" class="custom-text"><?= $i + 1 ?></th>
-
-                            <!-- loop for to print value -->
-                            <?php foreach ($updateHotels[$i] as $key => $value) : ?>
-                                <td class="custom-text"><?= $value ?></td>
+                            <!-- loop for each to print keys -->
+                            <?php foreach ($hotels[0] as $key => $value) : ?>
+                                <th scope="col" class="custom-text"><?= $key ?></th>
                             <?php endforeach; ?>
                         </tr>
+                    </thead>
 
-                    <?php endfor; ?>
-                </tbody>
+                    <!-- loop for to print 5 rows -->
+                    <tbody>
+                        <?php for ($i = 0; $i < count($hotels); $i++) : ?>
 
-            </table>
+                            <tr class="row-hotel">
+                                <th scope="row" class="custom-text"><?= $i + 1 ?></th>
+
+                                <!-- loop for to print value -->
+                                <?php foreach ($updateHotels[$i] as $key => $value) : ?>
+                                    <td class="custom-text"><?= $value ?></td>
+                                <?php endforeach; ?>
+                            </tr>
+
+                        <?php endfor; ?>
+                    </tbody>
+
+                </table>
+            </div>
         </div>
 
     </div>
