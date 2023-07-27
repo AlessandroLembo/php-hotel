@@ -30,10 +30,15 @@ foreach ($hotels as $hotel) {
     // sostituisco a tutti gli hotels il booleano del voto con la stringa di stelle
     $hotel = array_replace($hotel, $starsVote);
 
-
+    // elimino lo zero decimale dalla proprietà distanza
+    $floatDistance = floatval($hotel['Distance']);
 
     // aggiungo una stringa al voto
-    $hotel['Distance'] .= ' Km';
+    $floatDistance .= ' Km';
+
+    // cambio la proprietà Distance degli hotels con la variabile senza lo zero decimale
+    $replaceDistance = array('Distance' => $floatDistance);
+    $hotel = array_replace($hotel, $replaceDistance);
 
     // In base alla disponibilità di parcheggio uso il metodo array_replace per cambiare la proprietà 'parking' del singolo hotel
     $hotel['Parking'] == true ? $replacements = array('Parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>') : $replacements = array('Parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
