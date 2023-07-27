@@ -5,7 +5,7 @@
 const DB_SERVERNAME = 'localhost';
 const DB_USERNAME = 'root';
 const DB_PASSWORD = 'root';
-const DB_NAME = 'hotels';
+const DB_NAME = 'db_hotels';
 
 // costrutto Try Cacth: nel try metto il tentativo di connessione, se non ci riesco entro nel catch (catturo l'eccezione, l'errore) blocco tutto
 try {
@@ -23,7 +23,7 @@ try {
 // faccio un altro try catch perchè catturare l'erroe in caso di query sbagliata
 try {
     // tento la query alla tabella hotel del database al uale ci siamo connessi
-    $sql = "SELECT `Name`, `Description`, `Parking`, `Vote`, `Distance` FROM `hotel`";
+    $sql = "SELECT `Name`, `Description`, `Parking`, `Vote`, `Distance` FROM `hotels`";
 
     // raccolgo il risultato della query
     $result = $conn->query($sql);
