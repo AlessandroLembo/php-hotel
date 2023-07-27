@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../data.php';
+require_once __DIR__ . '/../conn_db.php';
+
+require_once __DIR__ . '/data.php';
 
 
 // array vuoto che riempio con le votazioni di ogni hotel
@@ -16,14 +18,14 @@ foreach ($hotels as $hotel) {
     foreach ($stars as $star) {
 
         // ternario per controllare quante e quali stelle inserie nell'array
-        $hotel['vote'] >= $star['star'] ? array_push($arrayStars, '<i class="fa-solid fa-star" style="color: #c1ad49;"></i>') : array_push($arrayStars, '<i class="fa-regular fa-star" style="color: #c1ad49;"></i>');
+        $hotel['Vote'] >= $star['star'] ? array_push($arrayStars, '<i class="fa-solid fa-star" style="color: #c1ad49;"></i>') : array_push($arrayStars, '<i class="fa-regular fa-star" style="color: #c1ad49;"></i>');
     }
 
     // converto l'array in stringa
     $starString = implode($arrayStars);
 
     // salvo in una variabile il valore nuovo assegnato alla proprietà 'vote'
-    $starsVote = array('vote' => $starString);
+    $starsVote = array('Vote' => $starString);
 
     // sostituisco a tutti gli hotels il booleano del voto con la stringa di stelle
     $hotel = array_replace($hotel, $starsVote);
@@ -31,10 +33,10 @@ foreach ($hotels as $hotel) {
 
 
     // aggiungo una stringa al voto
-    $hotel['distance'] .= ' Km';
+    $hotel['Distance'] .= ' Km';
 
     // In base alla disponibilità di parcheggio uso il metodo array_replace per cambiare la proprietà 'parking' del singolo hotel
-    $hotel['parking'] == true ? $replacements = array('parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>') : $replacements = array('parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
+    $hotel['Parking'] == true ? $replacements = array('Parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>') : $replacements = array('Parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
     $hotel = array_replace($hotel, $replacements);
 
     // inserisco nell'array gli hotel con la proprità 'parking' aggiornata
