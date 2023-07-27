@@ -44,7 +44,7 @@ foreach ($hotels as $hotel) {
     $hotel['Parking'] == true ? $replacements = array('Parking' => '<i class="fa-solid fa-circle-check" style="color: #269c3d;"></i>') : $replacements = array('Parking' => '<i class="fa-solid fa-circle-xmark" style="color: #d90d0d;"></i>');
     $hotel = array_replace($hotel, $replacements);
 
-    // inserisco nell'array gli hotel con la proprità 'parking' aggiornata
+    // inserisco nell'array gli hotel con la proprietà 'parking' aggiornata
     array_push($updateHotels, $hotel);
 
     // svuoto l'array per riempirlo di stelle del prossimo hotel su cui giro
