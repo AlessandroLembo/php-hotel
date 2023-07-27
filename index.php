@@ -1,7 +1,7 @@
 <?php
 
 
-require_once __DIR__ . '/custom_data/logic.php';
+require_once __DIR__ . '/data/logic.php';
 
 ?>
 
