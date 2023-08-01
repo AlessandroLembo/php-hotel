@@ -4,7 +4,6 @@ require_once __DIR__ . '/../conn_db.php';
 
 require_once __DIR__ . '/data.php';
 
-
 // array vuoto che riempio con le votazioni di ogni hotel
 $arrayStars = [];
 
@@ -33,7 +32,7 @@ foreach ($hotels as $hotel) {
     // elimino lo zero decimale dalla proprietà distanza
     $floatDistance = floatval($hotel['Distance']);
 
-    // aggiungo una stringa al voto
+    // aggiungo una stringa alla distanza
     $floatDistance .= ' Km';
 
     // cambio la proprietà Distance degli hotels con la variabile senza lo zero decimale
